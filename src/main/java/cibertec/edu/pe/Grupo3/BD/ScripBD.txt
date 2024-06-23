@@ -1,0 +1,38 @@
+create database Grupo3
+use Grupo3
+
+CREATE TABLE Personaje
+(
+ IdPersonaje 		INT NOT NULL AUTO_INCREMENT,
+ NomPersonaje		VARCHAR(50) NOT NULL,
+ ApePersonaje 		VARCHAR(50) NOT NULL,
+ FechNacPersonaje	DATE NOT NULL,
+ PRIMARY KEY (IdPersonaje)
+);
+
+CREATE TABLE ProgramaTv
+(
+ IdProgramaTv 		INT NOT NULL AUTO_INCREMENT,
+ Titulo 			VARCHAR(250) NOT NULL,
+ Resumen 			VARCHAR(250) NOT NULL,
+ FechaInicio	DATE NOT NULL,
+ IdPersonaje 			INT NOT NULL,
+ PRIMARY KEY (IdProgramaTv),
+ FOREIGN KEY (IdPersonaje) REFERENCES Personaje(IdPersonaje)
+ );
+ 
+ INSERT INTO Personaje (NomPersonaje, ApePersonaje, FechNacPersonaje)
+VALUES 
+('Mario', 'Gomez', '1980-04-10'),
+('Ana', 'Lopez', '1985-06-15'),
+('Carlos', 'Perez', '1978-09-21'),
+('Lucia', 'Martinez', '1992-11-03'),
+('Jorge', 'Fernandez', '1983-01-12');
+
+INSERT INTO ProgramaTv (Titulo, Resumen, FechaInicio, IdPersonaje)
+VALUES
+('Adventure Time', 'A series of adventures', '2010-04-05', 1),
+('Cooking Master', 'A cooking competition', '2015-07-20', 2),
+('History Unfolded', 'Historical documentaries', '2012-01-14', 3),
+('Science Today', 'Latest in science', '2018-09-30', 4),
+('Mystery Nights', 'Mystery and thriller series', '2019-11-10', 5);
