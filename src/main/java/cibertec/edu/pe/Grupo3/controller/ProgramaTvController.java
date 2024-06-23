@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/v1/programasTv")
+@RequestMapping("api/programasTv")
 public class ProgramaTvController {
 
     private final IProgramaTvService programaTvService;

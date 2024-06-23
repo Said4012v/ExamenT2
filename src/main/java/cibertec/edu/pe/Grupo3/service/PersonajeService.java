@@ -25,6 +25,10 @@ public class PersonajeService implements IPersonajeService {
 
     @Override
     public Optional<Personaje> obtenerPersonajexId(Integer id) {
-        return personajeRepository.findById(id);
+        Optional<Personaje> personaje = personajeRepository.findById(id);
+        if(personaje.isEmpty()) {
+            return Optional.empty();
+        }
+        return personaje;
     }
 }
